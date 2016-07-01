@@ -1,0 +1,51 @@
+package myproj;
+
+import java.util.Scanner;
+
+public class powerlgn {
+	private static Scanner s;
+	
+	public static int powlg(int x,int n){
+		if(n==1){
+			return x;
+		}
+		if(n%2==0)
+			return powlg(x,n/2)*powlg(x,n/2);
+		return x*powlg(x,n-1);
+	}
+	
+	public static int countGreater(String str){
+		if(str.length()==0){
+			int count=0;
+			return count; 
+		}
+		int count= countGreater(str.substring(1));
+		for(int i=1;i<str.length();i++){
+			if(str.charAt(0)<str.charAt(i))
+				count+=fact(str.length()-1);
+		}
+		return count;
+		
+	}
+	
+	public static int fact(int n){
+		if(n==1){
+			return 1;
+		}
+		return n*fact(n-1);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		s=new Scanner(System.in);
+//		System.out.println("ENTER X & N:");
+//		int x=s.nextInt();
+//		int n=s.nextInt();
+//		int out=powlg(x, n);
+//		System.out.println(out);
+		int out=countGreater("2134", 0);
+		System.out.println(out);
+
+	}
+
+}

@@ -1,0 +1,71 @@
+package myproj;
+
+import java.util.Scanner;
+
+
+
+public class rank {
+
+	public static int base26ToDec(String str){
+		
+		int a=str.length();
+		int b;
+		int rank=0;
+		int c=0;
+		int val=0;
+		for(int i=a-1;i>=0;i--){
+			b=str.charAt(i);
+			if(b<=90){
+				val=b-64;
+				rank+=val*Math.pow(26, c);
+				c++;
+			}
+			else{
+				val=b-96;
+				rank+=val*Math.pow(26, c);
+				c++;	
+			}
+		}
+		return rank;	
+	}
+	
+	public static char[] dec2base26(int inp){
+		
+		int size=(int)(Math.log10(inp)/Math.log10(26))+1;
+		char[] str=new char[size];
+		int rem=0;
+		int k=size-1;
+		if(inp<=26){
+			str[k]=(char)(inp+64);
+			k--;
+		}
+		else{
+			while(inp>=26){
+				rem=inp%26;
+				str[k]=(char)(rem+64);
+				inp/=26;
+				k--;
+			}
+			str[k]=(char)(inp+64);
+		}
+		
+		return str;
+	}
+
+
+	private static Scanner s;
+	public static void main(String[] args) {
+		s=new Scanner(System.in);
+		System.out.println("ENTER THE ALBHABETS:");
+		String ch= s.next();
+		int rank=base26ToDec(ch);	
+		System.out.println(rank);
+//		System.out.println("ENTER NO.");
+//		int inp=s.nextInt();
+//		char[] str=dec2base26(inp);
+//		for(int i=0;i<str.length;i++){
+//			System.out.print(str[i]);
+		
+	}
+
+}

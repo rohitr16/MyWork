@@ -1,0 +1,26 @@
+package myproj;
+
+import java.util.Scanner;
+
+public class rank {
+	
+	private static Scanner s;
+	public static void main(String[] args) {
+		s=new Scanner(System.in);
+		System.out.println("ENTER THE ALBHABETS:");
+		String ch= s.next();
+		int a=ch.length();	
+		int b;
+		int rank=0;
+		int c=0;
+//		for(int i=a-1;i>=0;i--){
+//			b=ch.charAt(i);
+//			
+//			
+//			
+//			
+//		}
+		System.out.println(rank+1);
+	}
+
+}

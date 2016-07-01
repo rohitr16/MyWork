@@ -1,0 +1,143 @@
+package myproj;
+
+import java.util.Scanner;
+public class stringp {
+	private static Scanner s;
+
+	public static int[] createArr(int size){
+		int arr[]=new int[size];
+		s=new Scanner (System.in);
+		for(int i=0;i<size;i++){
+			arr[i]=s.nextInt();	
+		}
+		return arr;
+	}
+
+	public static boolean palin(String str){
+
+		for(int i=0;i<str.length()/2;i++){
+			if(str.charAt(i)!=str.charAt(str.length()-i-1)){
+				return false;
+			}
+
+		}
+		return true;
+
+	}
+	public static int[] countWLC(String str){
+		int[] ret=new int[3];
+
+		return ret;
+
+	}
+	public static void substring(String str){
+
+		for(int i=1;i<=str.length();i++){
+
+			for(int j=0;j<str.length()-i+1;j++){
+
+				System.out.print(str.substring(j,j+i)+" ");
+
+			}
+			System.out.println("");
+
+		}
+
+	}
+	public static char highOccur(String str){
+		char ch='\0';
+		int max=0;
+		int ascii=0;
+		int[] occurCount=new int[255];
+		for(int i=0;i<str.length();i++){
+			occurCount[str.charAt(i)]++;						
+		}
+		for(int i=0;i<occurCount.length;i++){
+			if(max<occurCount[i]){
+				max=occurCount[i];
+				ascii=i;
+			}
+		}
+		ch=(char)ascii;
+		return ch;
+	}
+	public static String minLenW(String str){
+		String word="";
+		int minLen=Integer.MAX_VALUE;
+		int index=0;
+		int count=0;
+		int i=0;
+		for(i=0;i<str.length();i++){
+			count=0;
+			while(i<str.length()&&str.charAt(i)!=' '){
+				count++;
+				i++;
+			}
+			if(minLen>count){
+				minLen=count;
+				index=i-count;
+			}
+
+		}
+		word=str.substring(index, index+minLen);
+		return word;
+	}
+
+	public static String remDup(String str){
+
+		for(int i=0;i<str.length()-1;i++){
+			if(str.charAt(i)==str.charAt(i+1)){
+				int j=i;
+				while(j<str.length()-1&&str.charAt(j)==str.charAt(j+1)){
+					j++;
+				}
+				str=str.substring(0, i+1)+str.substring(j+1, str.length());	
+			}
+		}
+		return str;
+	}
+
+	public static String compStr(String str){
+
+		for(int i=0;i<str.length()-1;i++){
+			
+			int j=i;
+			int count=1;
+			String st="1";
+			if(str.charAt(i)==str.charAt(i+1)){
+				
+				while(j<str.length()-1&&str.charAt(j)==str.charAt(j+1)){
+					j++;
+					count++;
+				}
+				st=String.valueOf(count);
+			}
+			
+			str=str.substring(0, i+1)+st+str.substring(j+1, str.length());
+			
+		}
+
+		return str;
+
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		s=new Scanner (System.in);
+		System.out.println("ENTER STRING:");
+		String str=s.nextLine();
+
+		//		boolean r=palin(str);
+		//		System.out.println(r);
+		//		substring(str);
+		//		char ch=highOccur(str);
+		//		System.out.println(ch);
+		//		str=minLenW(str);
+		//		System.out.println(str);
+		//				str=remDup(str);
+		//				System.out.println(str);
+			str=compStr(str);
+				System.out.println(str);
+
+	}
+
+}
