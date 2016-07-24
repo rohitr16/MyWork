@@ -1,0 +1,160 @@
+package work;
+
+import java.util.Scanner;
+
+import dataStructure.Node;
+
+public class linkedlistAdd {
+
+	private static Scanner s;
+
+	public static Node<Integer> makeList(int num){
+		s=new Scanner(System.in);
+		Node<Integer> newNode=new Node<Integer>();
+		Node<Integer> head=null;
+		Node<Integer> tail=null;
+		int data=s.nextInt();
+		newNode.data=data;
+		if(head==null){
+			head=newNode;
+			tail=newNode;
+		}
+		for(int i=0;i<num-1;i++){
+			data=s.nextInt();
+			newNode=new Node<Integer>();
+			newNode.data=data;
+			tail.next=newNode;
+			tail=tail.next;
+		}
+
+		return head;
+	}
+
+	public static int listLength(Node<Integer> head){
+		int length=0;
+
+		Node<Integer> tmp=head;
+
+		while(tmp!=null){
+			length++;
+			tmp=tmp.next;
+
+		}
+
+		return length;
+
+	}
+	
+	public static int carry=0;
+
+	public static Node<Integer> addList(Node<Integer> head1,Node<Integer> head2){
+
+		if(head1==null){
+			return null;
+		}
+
+		Node<Integer> listNode=new Node<>();
+
+		Node<Integer> tempNode=addList(head1.next, head2.next);
+
+		int sum=head1.data+head2.data+carry;
+		carry=sum/10;
+		listNode.data=sum%10;
+		listNode.next=tempNode;
+		return listNode;
+	}
+
+	public static Node<Integer> propagateCarry(Node<Integer> head){
+
+		while(carry>0){
+			Node<Integer> newNode=new Node<>();
+			newNode.data=carry%10;
+			carry=carry/10;
+			newNode.next=head;
+			head=newNode;
+		}
+
+		return head;
+
+	}
+	
+	public static Node<Integer> addRemain(Node<Integer> head,Node<Integer> headTmp){
+		if(head==headTmp){
+			return head;
+		}
+		
+		if(head!=headTmp){
+			addRemain(head.next,headTmp);
+			int sum=head.data+carry;
+			head.data=sum%10;
+			carry=sum/10;
+		}
+		
+		return head;
+		
+	}
+
+	public static Node<Integer> linkedListAdd(Node<Integer> head1,Node<Integer> head2){
+
+		int size1=listLength(head1);
+		int size2=listLength(head2);
+
+		if(size1==size2){
+			Node<Integer> newHead= addList(head1,head2);
+			return propagateCarry(newHead);
+
+		}
+		else{
+			int diff=(size1>size2)?size1-size2:size2-size1;
+
+			if(size1>size2){
+				Node<Integer> headTmp=head1;
+				while(diff>0){
+					headTmp=headTmp.next;
+					diff--;
+				}
+				headTmp=addList(headTmp, head2);
+				headTmp=addRemain(head1,headTmp);
+				return propagateCarry(headTmp);
+
+			}
+			else{
+				Node<Integer> headTmp=head2;
+				while(diff>0){
+					headTmp=headTmp.next;
+					diff--;
+				}
+				headTmp=addList(headTmp, head1);
+				return propagateCarry(headTmp);
+
+			}
+		}	
+	}
+
+	public static void printList(Node<Integer> head){
+
+		if(head==null){
+			return;
+		}
+
+		Node<Integer> tmp=head;
+
+		while(tmp!=null){
+			System.out.print(tmp.data+"->");
+			tmp=tmp.next;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// 8 6 4
+		// 1 2 9
+		Node<Integer> head1=makeList(4);
+		Node<Integer> head2=makeList(3);
+		Node<Integer> head=linkedListAdd(head1, head2);
+		printList(head);
+
+	}
+
+}

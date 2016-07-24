@@ -1,0 +1,76 @@
+package work;
+import java.util.*;
+
+import dataStructure.Node;
+import dataStructure.linkList;
+
+public class LinkedListuSE {
+	
+	public static Node<Integer> reverseList(Node<Integer> head){
+		
+		if(head.next==null||head==null){
+			return head;
+		}
+		
+		Node<Integer> tail=head.next;
+		Node<Integer> newNode=reverseList(head.next);
+		head.next=null;
+		tail.next=head;
+		
+		return newNode;
+	}
+	
+	public static Node<Integer> rearrangeList(Node<Integer> head,int listLength){
+		
+		if(head==null){
+			return null;
+		}
+		
+		Node<Integer> mid=head;
+		int midLength=listLength/2;;
+		
+		for(int i=0;i<midLength-1;i++){
+			mid=mid.next;
+		}
+		
+		
+		mid.next=reverseList(mid.next);
+		
+		 Node<Integer> temp=mid.next;
+	     while(temp!=null){
+	    	 System.out.print(temp.data+"->");
+	    	 temp=temp.next;
+	     }
+		
+		
+		Node<Integer> next=head;
+		Node<Integer> current=head;
+		
+//		while(next!=null&&next.next!=null){
+//			
+//			
+//			
+//		}
+		
+		
+		return head;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	     linkList ll= new linkList();
+	     int num=6;
+	     Node<Integer> head=ll.makeList(num);
+	     head=rearrangeList(head, num);
+	     
+	     Node<Integer> temp=head;
+	     while(temp!=null){
+	    	 System.out.print(temp.data+"->");
+	    	 temp=temp.next;
+	     }
+	     
+	     
+
+	}
+
+}

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Deprecated"/>
-<fullyQualifiedTypeName name="dataStructure.TreeMax"/>
-<fullyQualifiedTypeName name="dataStructure.TreeNode"/>
-<fullyQualifiedTypeName name="dataStructure.BinaryTreeUse"/>
 <fullyQualifiedTypeName name="dataStructure.BSTReturn"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="dataStructure.stack"/>
@@ -16,7 +12,6 @@
 <fullyQualifiedTypeName name="dataStructure2.HashMaps"/>
 <fullyQualifiedTypeName name="myproj.charcheck"/>
 <fullyQualifiedTypeName name="dataStructure2.HashMap"/>
-<fullyQualifiedTypeName name="dataStructure.Node"/>
 <fullyQualifiedTypeName name="dataStructure2.MapPair"/>
 <fullyQualifiedTypeName name="dataStructure2.PriorityQueue"/>
 <fullyQualifiedTypeName name="myproj.sum_pro"/>
@@ -55,9 +50,14 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="work.Vertex"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="work.AVLtreeNode"/>
 <fullyQualifiedTypeName name="work.inorderIterative"/>
 <fullyQualifiedTypeName name="work.AVLtree"/>
 <fullyQualifiedTypeName name="work.AVLTreeNode"/>
+<fullyQualifiedTypeName name="work.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="dataStructure.linkList"/>
+<fullyQualifiedTypeName name="dataStructure.Node"/>
+<fullyQualifiedTypeName name="work.LinkedListuSE"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

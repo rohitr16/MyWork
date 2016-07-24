@@ -34,20 +34,22 @@ public class CoinChange {
 //		if(ch[0]=='\0'){
 //			System.out.println("HO HA");
 //		}
-		AVLtree tree=new AVLtree();
-		AVLTreeNode root=tree.insert(null, 9);
-        root = tree.insert(root, 5);
-        root = tree.insert(root, 10);
-        root = tree.insert(root, 0);
-        root = tree.insert(root, 6);
-        root = tree.insert(root, 11);
-        root = tree.insert(root, -1);
-        root = tree.insert(root, 1);
-        root = tree.insert(root, 2);
-		
-		tree.printTree(root);
-		root=tree.delete(root, 10);
-		tree.printTree(root);
+//		AVLtree tree=new AVLtree();
+//		AVLTreeNode root=tree.insert(null, 9);
+//        root = tree.insert(root, 5);
+//        root = tree.insert(root, 10);
+//        root = tree.insert(root, 0);
+//        root = tree.insert(root, 6);
+//        root = tree.insert(root, 11);
+//        root = tree.insert(root, -1);
+//        root = tree.insert(root, 1);
+//        root = tree.insert(root, 2);
+//		
+//		tree.printTree(root);
+//		root=tree.delete(root, 10);
+//		tree.printTree(root);
+		int a= ~(3&0);
+		System.out.print(a);
 
 	}
 
