@@ -1,0 +1,28 @@
+package work;
+
+public class StirngWithSpaces {
+	
+	public static void printStringPer(String str,int i){
+		
+		if(i==str.length()-1){
+			System.out.println(str);
+		}
+		
+		printStringPer(str, i+1);
+		
+		str=str.substring(0,i+1)+" "+str.substring(i+1);
+		
+		printStringPer(str, i+2);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str="ABC";
+		printStringPer(str, 1);
+		
+
+	}
+
+}
